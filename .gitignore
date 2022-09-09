@@ -1,4 +1,6 @@
 /tests
+/temp
 *.md
 *.out
+mock
 so_long
