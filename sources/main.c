@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:54:38 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/14 13:42:26 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/14 17:08:28 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(void)
 	game->window = mlx_new_window(game->connect, 300, 300, "win");
 	game->img_width = SPRITE_WIDTH;
 	game->img_height = SPRITE_HEIGHT;
-	game->img = mlx_xpm_file_to_image(game->connect, "./images/ent.xpm", &game->img_width, &game->img_height);
+	game->img = mlx_xpm_file_to_image(game->connect, "./assets/images/ent.xpm", &game->img_width, &game->img_height);
 	mlx_hook(game->window, KeyPress, KeyPressMask, &handle_key, game);
 	mlx_loop_hook(game->connect, &handle_no, game);
 	mlx_loop(game->connect);
