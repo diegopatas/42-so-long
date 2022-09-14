@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 21:25:00 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/12 14:39:28 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/14 17:09:36 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <X11/X.h>
 # include <stdio.h>
 
-# include "../printf/ft_printf.h"
+# include "../libraries/printf/ft_printf.h"
 # include "types.h"
 
 #endif
