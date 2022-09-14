@@ -6,7 +6,7 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 22:45:12 by ddiniz            #+#    #+#              #
-#    Updated: 2022/09/08 23:22:10 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/09/12 15:55:21 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LEAKFLAGS	+= -s
 
 NAME		= so_long
 
-FILES		= main.c	render.c	handle_keypress.c	run_game.c
+FILES		= main.c
 
 INCLUDES	= ./includes
 SOURCES		= ./sources
@@ -40,6 +40,8 @@ DIR_PRINTF	= ./printf
 LIBFT		= libft.a
 GNL			= gnl.a
 PRINTF		= libftprintf.a
+
+MAIN		= $(SOURCES)/main.c
 
 all: $(NAME)
 
@@ -58,10 +60,10 @@ debug: all
 	gdb -q so_long -tui
 
 leak: all
-	valgrind $(LEAKFLAGS) ./$(NAME)
+	valgrind $(LEAKFLAGS) ./$(NAME) test
 
 mock:
-	$(COMPILER) $(CFLAGS) ./temp/main.c -I$(INCLUDES) $(MLXFLAGS) -o $@
+	$(COMPILER) $(CFLAGS) $(MAIN) -I$(INCLUDES) $(MLXFLAGS) -o $@
 
 clean:
 	rm -rf $(OBJECTS)
