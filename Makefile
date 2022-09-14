@@ -6,67 +6,78 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 22:45:12 by ddiniz            #+#    #+#              #
-#    Updated: 2022/09/12 15:55:21 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/09/14 17:24:32 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-COMPILER	= gcc
+COMPILER		= gcc
 
-CFLAGS		+= -Wall
-CFLAGS		+= -Wextra
-CFLAGS		+= -Werror
-CFLAGS		+= -g3
+CFLAGS			+= -Wall
+CFLAGS			+= -Wextra
+CFLAGS			+= -Werror
 
-MLXFLAGS	+= -lmlx
-MLXFLAGS	+= -lXext
-MLXFLAGS	+= -lX11
+ifdef GDB
+CFLAGS			+= -g3
+endif
 
-LEAKFLAGS	+= --leak-check=full
-LEAKFLAGS	+= --show-leak-kinds=all
-LEAKFLAGS	+= --track-origins=yes
-LEAKFLAGS	+= -s
+MLXFLAGS		+= -lmlx
+MLXFLAGS		+= -lXext
+MLXFLAGS		+= -lX11
 
-NAME		= so_long
+LEAKFLAGS		+= --leak-check=full
+LEAKFLAGS		+= --show-leak-kinds=all
+LEAKFLAGS		+= --track-origins=yes
+LEAKFLAGS		+= -s
 
-FILES		= main.c
+PATH_INCLUDES	= ./includes
+PATH_SOURCES	= ./sources
 
-INCLUDES	= ./includes
-SOURCES		= ./sources
+PATH_LIB		= ./libraries
+PATH_LIBFT		= $(PATH_LIB)/libft
+PATH_GN			= $(PATH_LIB)/gnl
+PATH_PRINTF		= $(PATH_LIB)/printf
 
-DIR_LIBFT	= ./libft
-DIR_GNL		= ./gnl
-DIR_PRINTF	= ./printf
+LIBFT			= libft.a
+GNL				= gnl.a
+PRINTF			= libftprintf.a
 
-LIBFT		= libft.a
-GNL			= gnl.a
-PRINTF		= libftprintf.a
+NAME			= so_long
 
-MAIN		= $(SOURCES)/main.c
+FILES			= main.c
+
+MAIN			= $(PATH_SOURCES)/main.c
 
 all: $(NAME)
 
 $(NAME): libraries
-	$(COMPILER) $(CFLAGS) $(SOURCES)/*.c -I$(INCLUDES) $(DIR_PRINTF)/$(PRINTF) $(MLXFLAGS) -o $@
+	$(COMPILER) $(CFLAGS) $(PATH_SOURCES)/*.c -I$(PATH_INCLUDES) $(PATH_PRINTF)/$(PRINTF) $(MLXFLAGS) -o $@
 
 libraries:
 #	$(MAKE) -C $(DIR_LIBFT) all
 #	$(MAKE) -C $(DIR_GNL) all
-	$(MAKE) -C $(DIR_PRINTF) all
+	$(MAKE) -C $(PATH_PRINTF) all
+
+clean:
+	rm -rf $(OBJECTS)
+	$(MAKE) -C $(PATH_PRINTF) clean
+
+fclean: clean
+	rm -rf $(NAME) mock
+	$(MAKE) -C $(PATH_PRINTF) fclean
+
+re: fclean all
 
 run: all
 	./$(NAME)
 
 debug: all
-	gdb -q so_long -tui
+	gdb -q $(NAME) -tui
 
 leak: all
 	valgrind $(LEAKFLAGS) ./$(NAME) test
 
 mock:
-	$(COMPILER) $(CFLAGS) $(MAIN) -I$(INCLUDES) $(MLXFLAGS) -o $@
+	$(COMPILER) $(CFLAGS) $(MAIN) -I$(PATH_INCLUDES) $(MLXFLAGS) -o $@
+	./$@
 
-clean:
-	rm -rf $(OBJECTS)
-
-fclean: clean
-	rm -rf $(NAME) mock
+.PHONY: all fclean clean re mock run leak libraries
