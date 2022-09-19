@@ -6,44 +6,24 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:54:38 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/14 17:08:28 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/16 22:26:23 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-
-int	handle_no(t_game *game)
-{
-	mlx_put_image_to_window(game->connect, game->window, game->img, SPRITE_WIDTH, SPRITE_HEIGHT);
-	return (0);
-}
-
-int	handle_key(int keycode, t_game *game)
-{
-	if (keycode == XK_Escape)
-	{
-		mlx_destroy_image(game->connect, game->img);
-		mlx_destroy_window(game->connect, game->window);
-		mlx_destroy_display(game->connect);
-		free(game->connect);
-		free(game);
-		exit(0);
-	}
-	return (0);
-}
+#include <so_long.h>
 
 int	main(void)
 {
 	t_game	*game;
 
 	game = (t_game *)malloc(sizeof (t_game));
-	game->connect = mlx_init();
-	game->window = mlx_new_window(game->connect, 300, 300, "win");
+	game->mlx = mlx_init();
+	game->win = mlx_new_window(game->mlx, 300, 300, "win");
 	game->img_width = SPRITE_WIDTH;
 	game->img_height = SPRITE_HEIGHT;
-	game->img = mlx_xpm_file_to_image(game->connect, "./assets/images/ent.xpm", &game->img_width, &game->img_height);
-	mlx_hook(game->window, KeyPress, KeyPressMask, &handle_key, game);
-	mlx_loop_hook(game->connect, &handle_no, game);
-	mlx_loop(game->connect);
+	game->img = mlx_xpm_file_to_image(game->mlx, "./assets/sprites/sprite_player.xpm", &game->img_width, &game->img_height);
+	mlx_hook(game->win, KeyPress, KeyPressMask, &handle_event, game);
+	mlx_loop_hook(game->mlx, &render, game);
+	mlx_loop(game->mlx);
 	return (EXIT_SUCCESS);
 }
