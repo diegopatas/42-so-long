@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 21:25:00 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/14 17:09:36 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/16 19:23:21 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@
 # include <X11/keysym.h>
 # include <X11/X.h>
 # include <stdio.h>
-
-# include "../libraries/printf/ft_printf.h"
+# include <libft.h>
+# include <get_next_line.h>
+# include <ft_printf.h>
 # include "types.h"
+
+int	handle_event(int keycode, t_game *game);
+int	render(t_game *game);
 
 #endif
