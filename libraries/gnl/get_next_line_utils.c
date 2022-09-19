@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 10:27:31 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/05/13 21:50:40 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/16 14:00:41 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(const char *str)
 	return (len);
 }
 
-char	*ft_strchr(const char *str, char c)
+char	*ft_gnl_strchr(const char *str, char c)
 {
 	if (str != NULL)
 	{

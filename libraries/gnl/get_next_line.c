@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 21:42:25 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/05/13 21:48:00 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/16 14:00:37 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ char	*get_next_line(int fd)
 
 	line = NULL;
 	n_read = -1;
-	while (!ft_strchr(line, '\n') && n_read != 0)
+	while (!ft_gnl_strchr(line, '\n') && n_read != 0)
 	{
-		aux = ft_strchr(buff, '\n');
+		aux = ft_gnl_strchr(buff, '\n');
 		if (aux++)
 		{
 			new_str(&line, buff, aux - buff);
