@@ -1,6 +1,17 @@
+# ===========[ FOLDERS ] ============
 /tests
 /temp
+/objects
+
+# ===========[ FILES ] ==============
+
+*.o
 *.md
 *.out
+*.a
+
+# ===========[ PROGRAMS ] ===========
+
 mock
 so_long
+
