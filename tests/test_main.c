@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   all_tests.c                                        :+:      :+:    :+:   */
+/*   test_main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 16:45:58 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/20 19:07:58 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/21 15:38:00 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unity.h>
-#include <unity_fixture.h>
+#include <test_so_long.h>
 
 void	run_all_tests(void)
 {
-	RUN_TEST_GROUP(leddriver);
+	RUN_TEST_GROUP(game_init);
 }
 
 int	main(int argc, const char *argv[])
