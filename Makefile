@@ -6,7 +6,7 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 22:45:12 by ddiniz            #+#    #+#              #
-#    Updated: 2022/09/21 11:35:06 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/09/21 16:16:14 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ PRINTF			= $(PATH_PRINTF)/libftprintf.a
 
 # FILE
 INCLUDES		= -I$(PATH_INCLUDE) -I$(PATH_LIBFT) -I$(PATH_PRINTF) -I$(PATH_GNL)
-FILE_SOURCES	= main.c	render.c	handle_event.c
+FILE_SOURCES	= so_long.c		render.c	handle_event.c
 FILE_OBJECTS	= $(SOURCE:$(PATH_SOURCE)/%.c=$(PATH_OBJECT)/%.o)
 FILE_HEADER		= $(PATH_INCLUDE)/so_long.h
 SOURCE			= $(addprefix $(PATH_SOURCE)/, $(FILE_SOURCES))
@@ -62,48 +62,34 @@ SOURCE			= $(addprefix $(PATH_SOURCE)/, $(FILE_SOURCES))
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(PRINTF) $(GNL) $(PATH_OBJECT) $(FILE_OBJECTS) $(FILE_HEADER)
-	@printf "==== Compiling $(NAME) ==== \t"
-	@$(LINKER) $(FLAG_C)  $(FILE_OBJECTS) $(FLAG_MLX) -o $@
-	@echo OK!
-	@printf "To run,  type:\t\t make run ARGV=1\n"
-	@printf "To test, type:\t\t make test \n"
+	$(LINKER) $(FLAG_C) $(FILE_OBJECTS) $(FLAG_MLX) -o $@
 
 $(LIBFT):
-	@printf "==== [ Compiling $(LIBFT) ] ===\t"
-	@$(MAKE) -C $(PATH_LIBFT) all
-	@echo OK!
+	$(MAKE) -C $(PATH_LIBFT) all
 
 $(GNL):
-	@printf "====  Compiling $(GNL) ======\t"
-	@$(MAKE) -C $(PATH_GNL) all
-	@echo OK!
+	$(MAKE) -C $(PATH_GNL) all
 
 $(PRINTF):
-	@printf "====  Compiling $(PRINTF)  == \t"
-	@$(MAKE) -C $(PATH_PRINTF) all
-	@echo OK!
+	$(MAKE) -C $(PATH_PRINTF) all
 
 $(PATH_OBJECT)/%.o: $(PATH_SOURCE)/%.c $(FILE_HEADER)
-	@$(COMPILER) $(FLAG_C) $(INCLUDE) $< -o $@
+	@$(COMPILER) $(FLAG_C) $(INCLUDES) $< -o $@
 
 $(PATH_OBJECT):
-	@$(MAKE_DIR) $(PATH_OBJECT)
+	$(MAKE_DIR) $(PATH_OBJECT)
 
 clean:
-	@printf "Removing objects... \t"
-	@$(REMOVE_FORCE) $(PATH_OBJECT)
+	$(REMOVE_FORCE) $(PATH_OBJECT)
 	@$(MAKE) -C $(PATH_LIBFT) clean
 	@$(MAKE) -C $(PATH_PRINTF) clean
 	@$(MAKE) -C $(PATH_TESTS) clean
-	@echo OK!
 
 fclean: clean
-	@printf "Removing binary... \t"
-	@$(REMOVE_FORCE) $(NAME)
+	$(REMOVE_FORCE) $(NAME)
 	@$(MAKE) -C $(PATH_LIBFT) fclean
 	@$(MAKE) -C $(PATH_PRINTF) fclean
 	@$(MAKE) -C $(PATH_TESTS) fclean
-	@echo OK!
 
 re: fclean all
 
@@ -117,6 +103,6 @@ leak: all
 	$(MEMCHECK) $(FLAG_LEAK) ./$(NAME) $(ARGUMENTS)
 
 test:
-	@$(MAKE) -C $(PATH_TESTS) all
+	$(MAKE) -C $(PATH_TESTS) all
 
 .PHONY: all fclean clean re run leak test debug
