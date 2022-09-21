@@ -1,6 +1,6 @@
 # ===========[ FOLDERS ] ============
 /tests
-/temp
+#/temp
 /objects
 
 # ===========[ FILES ] ==============
