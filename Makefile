@@ -6,7 +6,7 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 22:45:12 by ddiniz            #+#    #+#              #
-#    Updated: 2022/09/19 17:16:10 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/09/21 11:35:06 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ PATH_INCLUDE	= includes
 PATH_SOURCE		= sources
 PATH_OBJECT		= objects
 PATH_LIBRARY	= libraries
+PATH_TESTS		= tests
 PATH_LIBFT		= $(PATH_LIBRARY)/libft
 PATH_GNL		= $(PATH_LIBRARY)/gnl
 PATH_PRINTF		= $(PATH_LIBRARY)/printf
@@ -52,6 +53,7 @@ LIBFT			= $(PATH_LIBFT)/libft.a
 PRINTF			= $(PATH_PRINTF)/libftprintf.a
 
 # FILE
+INCLUDES		= -I$(PATH_INCLUDE) -I$(PATH_LIBFT) -I$(PATH_PRINTF) -I$(PATH_GNL)
 FILE_SOURCES	= main.c	render.c	handle_event.c
 FILE_OBJECTS	= $(SOURCE:$(PATH_SOURCE)/%.c=$(PATH_OBJECT)/%.o)
 FILE_HEADER		= $(PATH_INCLUDE)/so_long.h
@@ -82,8 +84,7 @@ $(PRINTF):
 	@echo OK!
 
 $(PATH_OBJECT)/%.o: $(PATH_SOURCE)/%.c $(FILE_HEADER)
-	@$(COMPILER) $(FLAG_C) -I$(PATH_LIBFT) -I$(PATH_GNL) -I$(PATH_PRINTF) \
-				-I$(PATH_INCLUDE) $< -o $@
+	@$(COMPILER) $(FLAG_C) $(INCLUDE) $< -o $@
 
 $(PATH_OBJECT):
 	@$(MAKE_DIR) $(PATH_OBJECT)
@@ -93,6 +94,7 @@ clean:
 	@$(REMOVE_FORCE) $(PATH_OBJECT)
 	@$(MAKE) -C $(PATH_LIBFT) clean
 	@$(MAKE) -C $(PATH_PRINTF) clean
+	@$(MAKE) -C $(PATH_TESTS) clean
 	@echo OK!
 
 fclean: clean
@@ -100,6 +102,7 @@ fclean: clean
 	@$(REMOVE_FORCE) $(NAME)
 	@$(MAKE) -C $(PATH_LIBFT) fclean
 	@$(MAKE) -C $(PATH_PRINTF) fclean
+	@$(MAKE) -C $(PATH_TESTS) fclean
 	@echo OK!
 
 re: fclean all
@@ -113,4 +116,7 @@ debug: all
 leak: all
 	$(MEMCHECK) $(FLAG_LEAK) ./$(NAME) $(ARGUMENTS)
 
-.PHONY: all fclean clean re run leak
+test:
+	@$(MAKE) -C $(PATH_TESTS) all
+
+.PHONY: all fclean clean re run leak test debug
