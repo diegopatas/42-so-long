@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_main.c                                        :+:      :+:    :+:   */
+/*   test_so_long.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 16:45:58 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/21 15:38:00 by ddiniz           ###   ########.fr       */
+/*   Created: 2022/09/21 14:30:43 by ddiniz            #+#    #+#             */
+/*   Updated: 2022/09/21 15:08:25 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <test_so_long.h>
+#ifndef TEST_SO_LONG_H
+#define TEST_SO_LONG_H
 
-void	run_all_tests(void)
-{
-	RUN_TEST_GROUP(game_init);
-}
+# include <unity.h>
+# include <unity_fixture.h>
+# include <so_long.h>
+# include <mlx.h>
 
-int	main(int argc, const char *argv[])
-{
-	return UnityMain(argc, argv, run_all_tests);
-}
+#endif

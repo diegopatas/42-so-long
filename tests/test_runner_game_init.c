@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   leddriver_test.c                                   :+:      :+:    :+:   */
+/*   test_runner_game_init.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 16:33:58 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/20 18:46:27 by ddiniz           ###   ########.fr       */
+/*   Created: 2022/09/21 15:30:20 by ddiniz            #+#    #+#             */
+/*   Updated: 2022/09/21 15:37:32 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unity.h>
-#include <unity_fixture.h>
+#include <test_so_long.h>
 
-TEST_GROUP(leddriver);
-
-TEST_SETUP(leddriver)
+TEST_GROUP_RUNNER(game_init)
 {
+	RUN_TEST_CASE(game_init, mlx_connection);
 }
-
-TEST_TEAR_DOWN(leddriver)
-{
-}
-
-TEST(leddriver, leds_off)
-{
-	TEST_FAIL_MESSAGE("Start Here!");
-}
-

@@ -1,19 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   leddriver_runner.c                                 :+:      :+:    :+:   */
+/*   test_game_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 16:43:08 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/20 18:54:36 by ddiniz           ###   ########.fr       */
+/*   Created: 2022/09/21 14:21:20 by ddiniz            #+#    #+#             */
+/*   Updated: 2022/09/21 17:58:19 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unity.h>
-#include <unity_fixture.h>
+#include <test_so_long.h>
+#include <stdlib.h>
+#include <mlx.h>
 
-TEST_GROUP_RUNNER(leddriver)
+TEST_GROUP(game_init);
+
+static t_game	game;
+
+TEST_SETUP(game_init)
 {
-	RUN_TEST_CASE(leddriver, leds_off);
+}
+
+TEST_TEAR_DOWN(game_init)
+{
+}
+
+TEST(game_init, mlx_connection)
+{
+	game.mlx = mlx_init();
+	TEST_ASSERT_NOT_NULL(game.mlx);
 }
