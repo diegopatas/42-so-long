@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 21:25:00 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/21 15:51:54 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/21 18:56:20 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,6 @@
 
 int	handle_event(int keycode, t_game *game);
 int	render(t_game *game);
+int	game_init(t_game *game);
 
 #endif
