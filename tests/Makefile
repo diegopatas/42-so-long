@@ -6,7 +6,7 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/21 00:07:56 by ddiniz            #+#    #+#              #
-#    Updated: 2022/09/21 17:41:39 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/09/21 21:54:05 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ INCLUDES		= -I. -I$(PATH_UNITY) -I$(PATH_FIXTURE) -I$(PATH_MEMORY) \
 HEADER			= test_so_long.h
 OBJECTS			= $(SOURCES:%.c=%.o)
 SOURCES			= test_main.c
-SOURCES			+= test_game_init.c test_runner_game_init.c
+SOURCES			+= test_game_init.c 	test_runner_game_init.c	game_init.c
 
 NAME			= test.out
 
