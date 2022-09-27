@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 10:04:26 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/22 22:43:00 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/23 21:53:27 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 typedef struct	s_game {
 	void	*mlx;
 	void	*win;
+	int		**map;
 	int		img_width;
 	int		img_height;
 	void	*img_empty;
