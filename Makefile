@@ -6,7 +6,7 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 22:45:12 by ddiniz            #+#    #+#              #
-#    Updated: 2022/09/22 22:51:59 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/09/27 23:40:55 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ PRINTF			= $(PATH_PRINTF)/libftprintf.a
 # FILE
 INCLUDES		= -I$(PATH_INCLUDE) -I$(PATH_LIBFT) -I$(PATH_PRINTF) -I$(PATH_GNL)
 FILE_SOURCES	= so_long.c		render.c	handle_event.c	game_init.c game_run.c \
-				  sprites_load.c
+				  sprites_load.c	sprites_unload.c	map_init.c	map_valid.c
 FILE_OBJECTS	= $(SOURCE:$(PATH_SOURCE)/%.c=$(PATH_OBJECT)/%.o)
 FILE_HEADER		= $(PATH_INCLUDE)/so_long.h
 SOURCE			= $(addprefix $(PATH_SOURCE)/, $(FILE_SOURCES))
@@ -63,7 +63,7 @@ SOURCE			= $(addprefix $(PATH_SOURCE)/, $(FILE_SOURCES))
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(PRINTF) $(GNL) $(PATH_OBJECT) $(FILE_OBJECTS) $(FILE_HEADER)
-	$(LINKER) $(FLAG_C) $(FILE_OBJECTS) $(PRINTF) $(FLAG_MLX) -o $@
+	$(LINKER) $(FLAG_C) $(FILE_OBJECTS) $(LIBFT) $(PRINTF) $(FLAG_MLX) -o $@
 
 $(LIBFT):
 	$(MAKE) -C $(PATH_LIBFT) all
