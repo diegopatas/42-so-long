@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_event.c                                     :+:      :+:    :+:   */
+/*   game_run.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 18:54:09 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/27 23:07:43 by ddiniz           ###   ########.fr       */
+/*   Created: 2022/09/22 10:06:16 by ddiniz            #+#    #+#             */
+/*   Updated: 2022/09/23 22:19:52 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-int	handle_event(int keycode, t_game *game)
+int	game_run(t_game *game, char *map_ber)
 {
-	if (keycode == XK_Escape)
-	{
-// 		mlx_loop_end(game->mlx);
-		sprites_unload(game);
-		mlx_destroy_window(game->mlx, game->win);
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
-		free(game);
-		exit(0);
-	}
-	return (0);
+	game_init(game);
+	sprites_load(game);
+	map_valid(map_ber);
+	mlx_hook(game->win, KeyPress, KeyPressMask, &handle_event, game);
+	mlx_loop_hook(game->mlx, &render, game);
+	mlx_loop(game->mlx);
+	return (EXIT_SUCCESS);
 }

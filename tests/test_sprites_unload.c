@@ -1,40 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_game_init.c                                   :+:      :+:    :+:   */
+/*   test_sprites_unload.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 14:21:20 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/27 23:51:06 by ddiniz           ###   ########.fr       */
+/*   Created: 2022/09/27 23:48:39 by ddiniz            #+#    #+#             */
+/*   Updated: 2022/09/28 17:32:00 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <test_so_long.h>
 #include <mlx.h>
 
-TEST_GROUP(game_init);
+TEST_GROUP(sprites_unload);
 
-static t_game	game;
+static t_game game;
 
-TEST_SETUP(game_init)
+TEST_SETUP(sprites_unload)
 {
 	game_init(&game);
+	sprites_load(&game);
+// 	sprites_unload(&game);
 }
 
-TEST_TEAR_DOWN(game_init)
+TEST_TEAR_DOWN(sprites_unload)
 {
+	
 }
 
-TEST(game_init, mlx_connection)
+TEST(sprites_unload, check_null)
 {
-	TEST_ASSERT_EQUAL(0, game_init(&game));
-	TEST_ASSERT_NOT_NULL(game.mlx);
-	TEST_ASSERT_NOT_NULL(game.win);
-}
-
-TEST(game_init, img_param)
-{
-	TEST_ASSERT_EQUAL(0, game.img_width);
-	TEST_ASSERT_EQUAL(0, game.img_height);
+	TEST_ASSERT_NULL(game.img_player);
 }

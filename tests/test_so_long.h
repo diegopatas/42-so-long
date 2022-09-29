@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/21 14:30:43 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/21 15:08:25 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/21 21:58:05 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@
 # include <unity_fixture.h>
 # include <so_long.h>
 # include <mlx.h>
+
+int	game_init(t_game *game);
 
 #endif
