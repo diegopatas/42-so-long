@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_init.c                                        :+:      :+:    :+:   */
+/*   test_map_valid.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/21 14:14:29 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/21 21:51:47 by ddiniz           ###   ########.fr       */
+/*   Created: 2022/09/23 22:20:39 by ddiniz            #+#    #+#             */
+/*   Updated: 2022/09/23 22:33:13 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include <test_so_long.h>
+#include <mlx.h>
 
-int	game_init(t_game *game)
+TEST_GROUP(map_valid);
+
+// # define COLS 5
+// # define ROWS 5
+
+static char	*map = "test";
+
+TEST_SETUP(map_valid)
 {
-	game->mlx = mlx_init();
-	game->win = mlx_new_window(game->mlx, 300, 300, "win");
-	game->img_width = SPRITE_WIDTH;
-	game->img_height = SPRITE_HEIGHT;
-	return (EXIT_SUCCESS);
+
+}
+
+TEST_TEAR_DOWN(map_valid)
+{
+
+}
+
+TEST(map_valid, init)
+{
+	TEST_ASSERT_EQUAL(0, map_valid(map));
 }
