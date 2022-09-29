@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_event.c                                     :+:      :+:    :+:   */
+/*   map_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 18:54:09 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/27 23:07:43 by ddiniz           ###   ########.fr       */
+/*   Created: 2022/09/27 17:40:05 by ddiniz            #+#    #+#             */
+/*   Updated: 2022/09/27 17:54:12 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-int	handle_event(int keycode, t_game *game)
+void	map_init(t_game *game)
 {
-	if (keycode == XK_Escape)
-	{
-// 		mlx_loop_end(game->mlx);
-		sprites_unload(game);
-		mlx_destroy_window(game->mlx, game->win);
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
-		free(game);
-		exit(0);
-	}
-	return (0);
+	int	map[ROWS][COLS] = {
+		{1,1,1},
+		{1,2,1},
+		{1,3,1},
+		{1,4,1},
+		{1,1,1}
+	};
+	ft_memcpy(game->map, map, sizeof(int) * ROWS * COLS);
+	return ;
 }

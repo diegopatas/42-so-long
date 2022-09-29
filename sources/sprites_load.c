@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 22:47:12 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/22 22:58:34 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/27 22:42:16 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	sprites_load(t_game *game)
 {
+	game->img_width = SPRITE_WIDTH;
+	game->img_height = SPRITE_HEIGHT;
 	game->img_player = mlx_xpm_file_to_image
 		(game->mlx, PATH_S_PLAYER , &game->img_width, &game->img_height);
 	game->img_wall = mlx_xpm_file_to_image
