@@ -6,28 +6,9 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 21:25:00 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/26 20:42:46 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/27 23:40:17 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/* Copyright (C) 
- * 
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
- * 
- * 2022 - Diego
- */
 
 /**
  * @file	so_long.h
@@ -50,20 +31,18 @@
 # include <get_next_line.h>
 # include <ft_printf.h>
 # include <so_long_types.h>
+# include <math.h>
 
-/**
- * @brief Handle keypress
- *
- * @param int keycode	the key's correspondig integer
- * @param t_game game	the game struct
- *
- * @return int			success or failure indicator
- */
 int	handle_event(int keycode, t_game *game);
 int	render(t_game *game);
-int	game_run(t_game *game, char *map_ber);
+
 int	game_init(t_game *game);
+int	game_run(t_game *game, char *map_ber);
+
 int	sprites_load(t_game *game);
+int	sprites_unload(t_game *game);
+
 int	map_valid(char *map_ber);
+void	map_init(t_game *game);
 
 #endif
