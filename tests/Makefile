@@ -6,7 +6,7 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/21 00:07:56 by ddiniz            #+#    #+#              #
-#    Updated: 2022/09/28 22:06:16 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/09/29 15:30:50 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ INCLUDES		= -I. -I$(PATH_UNITY) -I$(PATH_FIXTURE) -I$(PATH_MEMORY) \
 HEADER			= test_so_long.h
 OBJECTS			= $(SOURCES:%.c=%.o)
 SOURCES			= $(wildcard *.c)
+#SOURCES			+= $(wildcard $(PATH_SOURCE)/*c)
 SOURCES			+= $(PATH_SOURCE)/game_init.c $(PATH_SOURCE)/sprites_load.c \
 				   $(PATH_SOURCE)/map_valid.c $(PATH_SOURCE)/sprites_unload.c \
 				   $(PATH_SOURCE)/map_init.c
