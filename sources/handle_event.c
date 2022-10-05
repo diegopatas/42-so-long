@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 18:54:09 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/04 22:46:29 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/05 08:16:51 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int	handle_event(int keycode, t_game *game)
 		if(game->map[1][2] != 'P')
 		{
 			game->map[1][2] = 'P';
-// 			game->map[1][4] = 'C';
+			game->map[1][4] = 'C';
 		}
-// 		if(game->map[1][2] == 'P')
-// 		{
-// 			game->map[1][4] = 'P';
-// 			game->map[1][2] = 'C';
-// 		}
+		else if(game->map[1][2] == 'P')
+		{
+			game->map[1][4] = 'P';
+			game->map[1][2] = 'C';
+		}
 		return (0);
 	}
 	if (keycode == XK_d)
