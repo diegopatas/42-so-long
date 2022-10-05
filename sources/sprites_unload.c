@@ -6,29 +6,31 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 23:06:40 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/28 17:23:56 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/04 19:37:25 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
+static	void sprites_unload_var(void *mlx, void *sprite)
+{
+	mlx_destroy_image(mlx, sprite);
+	sprite = NULL;
+	return ;
+}
+
 int	sprites_unload(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->img_player);
-	game->img_player = NULL;
-	mlx_destroy_image(game->mlx, game->img_wall);
-	game->img_wall = NULL;
-	mlx_destroy_image(game->mlx, game->img_collect);
-	game->img_collect = NULL;
-	mlx_destroy_image(game->mlx, game->img_empty);
-	game->img_empty = NULL;
-	mlx_destroy_image(game->mlx, game->img_exit);
-	game->img_exit = NULL;
-	if (game->img_player != NULL
-		|| game->img_wall != NULL
-		|| game->img_collect != NULL
-		|| game->img_empty != NULL
-		|| game->img_exit != NULL)
+	sprites_unload_var(game->mlx, game->player);
+	sprites_unload_var(game->mlx, game->wall);
+	sprites_unload_var(game->mlx, game->collect);
+	sprites_unload_var(game->mlx, game->empty);
+	sprites_unload_var(game->mlx, game->wayout);
+	if (game->player != NULL
+		|| game->wall != NULL
+		|| game->collect != NULL
+		|| game->empty != NULL
+		|| game->wayout != NULL)
 		return (1);
 	return (EXIT_SUCCESS);
 }
