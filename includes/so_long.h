@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 21:25:00 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/27 23:40:17 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/09/29 18:53:43 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ int	sprites_unload(t_game *game);
 
 int	map_valid(char *map_ber);
 void	map_init(t_game *game);
+void	map_draw(t_game *game);
 
 #endif
