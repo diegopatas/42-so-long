@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:17:15 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/06 12:36:10 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/06 12:53:29 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static	int player_move_try(t_game *game, int *player, int i, int j)
 			}
 			game->map[i][j] = 'P';
 		}
-		log_message("player moved!")
+		log_message("player moved!");
 	}
 	return (0);
 }
