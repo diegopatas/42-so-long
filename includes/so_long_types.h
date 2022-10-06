@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 10:04:26 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/04 23:08:14 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/06 10:10:15 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,12 @@
 # define SPRITE_PATH_WAYOUT "./assets/sprites/sprite_exit.xpm"
 # define SPRITE_BASE_WIDTH 32
 # define SPRITE_BASE_HEIGHT 32
-# define ROWS 3
+# define MOVE_UP 0
+# define MOVE_DOWN 1
+# define MOVE_LEFT 2
+# define MOVE_RIGHT 3
+# define STEP 1
+# define ROWS 5
 # define COLS 6
 
 typedef struct	s_game {
@@ -34,8 +39,10 @@ typedef struct	s_game {
 	void	*wayout;
 	int		width;
 	int		height;
-	int		x;
-	int		y;
+	int		p_row;
+	int		p_col;
+	int		exit_flag;
+	int		score;
 }	t_game;
 
 #endif
