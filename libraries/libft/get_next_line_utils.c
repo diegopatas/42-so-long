@@ -6,13 +6,13 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 10:27:31 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/16 14:00:41 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/06 19:01:26 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen_gnl(const char *str)
 {
 	size_t	len;
 
@@ -38,7 +38,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	len_src;
 
-	len_src = ft_strlen(src);
+	len_src = ft_strlen_gnl(src);
 	if (size--)
 	{
 		while (size-- && *src)
@@ -56,7 +56,7 @@ void	new_str(char **line, const char *buffer, size_t size)
 	aux = NULL;
 	if (buffer[0])
 	{
-		len_line = ft_strlen(*line);
+		len_line = ft_strlen_gnl(*line);
 		aux = (char *)malloc((len_line + size + 1) * sizeof(char));
 		if (aux != NULL)
 		{

@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 21:42:25 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/09/16 14:00:37 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/06 19:05:50 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ char	*get_next_line(int fd)
 		if (aux++)
 		{
 			new_str(&line, buff, aux - buff);
-			ft_strlcpy(buff, aux, ft_strlen(aux) + 1);
+			ft_strlcpy(buff, aux, ft_strlen_gnl(aux) + 1);
 			continue ;
 		}
-		new_str(&line, buff, ft_strlen(buff));
+		new_str(&line, buff, ft_strlen_gnl(buff));
 		n_read = read(fd, buff, BUFFER_SIZE);
 		if (n_read < 0)
 			return (NULL);
