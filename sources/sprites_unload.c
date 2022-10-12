@@ -6,13 +6,13 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 23:06:40 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/04 19:37:25 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/06 16:46:29 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
 
-static	void sprites_unload_var(void *mlx, void *sprite)
+static	void	sprites_unload_var(void *mlx, void *sprite)
 {
 	mlx_destroy_image(mlx, sprite);
 	sprite = NULL;

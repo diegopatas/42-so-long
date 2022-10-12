@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:58:25 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/06 12:58:30 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/10 22:33:04 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,34 @@ void	map_draw_line(t_game *game, int row, int col)
 	sprite = NULL;
 	if (game->map[row][col] == '1')
 		sprite = game->wall;
-	if (game->map[row][col] == 'E')
+	else if (game->map[row][col] == 'E')
 		sprite = game->wayout;
-	if (game->map[row][col] == 'C')
+	else if (game->map[row][col] == 'C')
 		sprite = game->collect;
-	if (game->map[row][col] == 'P')
+	else if (game->map[row][col] == 'P')
 		sprite = game->player;
-	if (game->map[row][col] == '0')
+	else if (game->map[row][col] == '0')
 		sprite = game->empty;
 	mlx_put_image_to_window(game->mlx, game->win, sprite,
-			SPRITE_BASE_WIDTH * row, SPRITE_BASE_HEIGHT * col);
+		SPRITE_BASE_WIDTH * row, SPRITE_BASE_HEIGHT * col);
 	return ;
 }
 
 void	map_draw(t_game *game)
 {
-	int	rows;
-	int	cols;
+	int	row;
+	int	col;
 
-	rows = 0;
-	while (rows < ROWS)
+	row = 0;
+	while (row < game->map_height)
 	{
-		cols = 0;
-		while (cols < COLS)
+		col = 0;
+		while (col < game->map_width)
 		{
-			map_draw_line(game, rows, cols);
-			cols++;
+			map_draw_line(game, row, col);
+			col++;
 		}
-		rows++;
+		row++;
 	}
 	return ;
 }
