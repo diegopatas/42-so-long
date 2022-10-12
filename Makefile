@@ -6,7 +6,7 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 22:45:12 by ddiniz            #+#    #+#              #
-#    Updated: 2022/10/06 12:19:45 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/10/11 15:22:27 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ FLAG_C			+= -g3
 endif
 
 ifdef ARGV
-ARGUMENTS 			+= map.ber
+ARGUMENTS 			+= $(PATH_MAPS)/map.ber
 endif
 
 # COMPILATION FLAG
@@ -40,26 +40,30 @@ FLAG_LEAK		+= -s
 PATH_INCLUDE	= includes
 PATH_SOURCE		= sources
 PATH_OBJECT		= objects
+PATH_ASSETS		= assets
+PATH_MAPS		= $(PATH_ASSETS)/maps
 PATH_LIBRARY	= libraries
 PATH_TESTS		= tests
 PATH_LIBFT		= $(PATH_LIBRARY)/libft
-PATH_GNL		= $(PATH_LIBRARY)/gnl
 PATH_PRINTF		= $(PATH_LIBRARY)/printf
 
 # LIBRARIES AND BINARY
 NAME			= so_long
-GNL				= $(PATH_GNL)
 LIBFT			= $(PATH_LIBFT)/libft.a
 PRINTF			= $(PATH_PRINTF)/libftprintf.a
 
 # FILE
-INCLUDES		= -I$(PATH_INCLUDE) -I$(PATH_LIBFT) -I$(PATH_PRINTF) -I$(PATH_GNL)
-FILE_SOURCES	= so_long.c				render.c			handle_event.c \
-				  game_init.c			game_run.c 			game_unload.c \
+INCLUDES		= -I$(PATH_INCLUDE) -I$(PATH_LIBFT) -I$(PATH_PRINTF)
+
+FILE_SOURCES	= so_long.c				render.c			event_key_handle.c \
+				  game_attribute_init.c	game_interface_load.c	game_interface_unload.c \
+				  game_run.c 			game_unload.c \
 				  sprites_load.c		sprites_unload.c \
-				  map_init.c			map_valid.c			map_draw.c \
-				  player_move_check.c	player_pos_get.c \
-				  log_message.c
+				  map_is_valid.c		map_is_path_valid.c	map_draw.c \
+				  map_load.c 			map_unload.c		map_rect_check.c \
+				  map_size_check.c		map_char_check.c	player_move_check.c \
+				  player_pos_get.c \
+				  log_message.c \
 
 FILE_OBJECTS	= $(SOURCE:$(PATH_SOURCE)/%.c=$(PATH_OBJECT)/%.o)
 FILE_HEADER		= $(PATH_INCLUDE)/so_long.h
@@ -67,14 +71,11 @@ SOURCE			= $(addprefix $(PATH_SOURCE)/, $(FILE_SOURCES))
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) $(PRINTF) $(GNL) $(PATH_OBJECT) $(FILE_OBJECTS) $(FILE_HEADER)
+$(NAME): $(LIBFT) $(PRINTF) $(PATH_OBJECT) $(FILE_OBJECTS) $(FILE_HEADER)
 	$(LINKER) $(FLAG_C) $(FILE_OBJECTS) $(LIBFT) $(PRINTF) $(FLAG_MLX) -o $@
 
 $(LIBFT):
 	$(MAKE) -C $(PATH_LIBFT) all
-
-$(GNL):
-	$(MAKE) -C $(PATH_GNL) all
 
 $(PRINTF):
 	$(MAKE) -C $(PATH_PRINTF) all
@@ -103,7 +104,7 @@ run: all
 	./$(NAME) $(ARGUMENTS)
 
 debug: all
-	$(DEBUG) $(NAME)
+	$(DEBUG) ./$(NAME) $(ARGUMENTS)
 
 leak: all
 	$(MEMCHECK) $(FLAG_LEAK) ./$(NAME) $(ARGUMENTS)
