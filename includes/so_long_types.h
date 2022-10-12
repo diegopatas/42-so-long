@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 10:04:26 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/06 10:10:15 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/12 00:05:56 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,30 @@
 # define MOVE_LEFT 2
 # define MOVE_RIGHT 3
 # define STEP 1
-# define ROWS 5
-# define COLS 6
+# define MAP_MAX_SIZE 256
+# define ERROR 1
+# define LOG 0
 
 typedef struct	s_game {
 	void	*mlx;
 	void	*win;
-	int		map[ROWS][COLS];
+	char	**map;
 	void	*empty;
 	void	*wall;
 	void	*player;
 	void	*collect;
 	void	*wayout;
-	int		width;
-	int		height;
-	int		p_row;
-	int		p_col;
-	int		exit_flag;
-	int		score;
+	int		base_width;
+	int		base_height;
+	int		map_width;
+	int		map_height;
+	int		player_row;
+	int		player_col;
+	int		player_moves;
+	int		ctrl_score;
+	int		ctrl_player;
+	int		ctrl_wayout;
+	int		nb_wayout;
 }	t_game;
 
 #endif
