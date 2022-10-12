@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 10:06:16 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/12 00:27:27 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/12 09:54:10 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int	game_run(char *map_argv)
 		{
 			game_interface_load(game);
 			sprites_load(game);
-			mlx_hook(game->win, KeyPress, KeyPressMask, &event_key_handle, game);
-			mlx_loop_hook(game->mlx, &render, game);
+			mlx_hook(game->win, KeyPress, KeyPressMask,
+				&event_key_handle, game);
+			mlx_loop_hook(game->mlx, &game_render, game);
 			mlx_loop(game->mlx);
 			return (EXIT_SUCCESS);
 		}
