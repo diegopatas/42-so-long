@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:17:13 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/11 23:17:32 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/12 09:06:42 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 int	log_message(char *content, int flag)
 {
-	if (flag)
+	if (flag != 0)
+	{
 		ft_printf("Error%c\n", 0);
+		ft_printf("Log: %s\n", content);
+		return (0);
+	}
 	ft_printf("Log: %s\n", content);
-	return (0);
+	return (1);
 }
