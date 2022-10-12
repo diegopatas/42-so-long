@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 21:25:00 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/11 23:27:10 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/12 10:58:42 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@
 # include <so_long_types.h>
 
 int	event_key_handle(int keycode, t_game *game);
-int	render(t_game *game);
 
+int	file_is_valid(char *file);
+
+int	game_render(t_game *game);
 int	game_run(char *map_argv);
 int	game_attribute_init(t_game *game);
 int	game_interface_load(t_game *game);
