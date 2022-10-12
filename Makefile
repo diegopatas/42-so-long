@@ -6,7 +6,7 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 22:45:12 by ddiniz            #+#    #+#              #
-#    Updated: 2022/10/11 15:22:27 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/10/12 10:02:01 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ PRINTF			= $(PATH_PRINTF)/libftprintf.a
 # FILE
 INCLUDES		= -I$(PATH_INCLUDE) -I$(PATH_LIBFT) -I$(PATH_PRINTF)
 
-FILE_SOURCES	= so_long.c				render.c			event_key_handle.c \
+FILE_SOURCES	= so_long.c				game_render.c			event_key_handle.c \
 				  game_attribute_init.c	game_interface_load.c	game_interface_unload.c \
 				  game_run.c 			game_unload.c \
 				  sprites_load.c		sprites_unload.c \
@@ -63,7 +63,7 @@ FILE_SOURCES	= so_long.c				render.c			event_key_handle.c \
 				  map_load.c 			map_unload.c		map_rect_check.c \
 				  map_size_check.c		map_char_check.c	player_move_check.c \
 				  player_pos_get.c \
-				  log_message.c \
+				  log_message.c			file_is_valid.c \
 
 FILE_OBJECTS	= $(SOURCE:$(PATH_SOURCE)/%.c=$(PATH_OBJECT)/%.o)
 FILE_HEADER		= $(PATH_INCLUDE)/so_long.h
