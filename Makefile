@@ -6,12 +6,12 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 22:45:12 by ddiniz            #+#    #+#              #
-#    Updated: 2022/10/13 14:50:08 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/10/13 17:52:03 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # COMPILATION
-LINKER			= gcc
+LINKER			= cc
 COMPILER		= $(LINKER) -c
 
 # SHELL COMMANDS
@@ -24,6 +24,10 @@ MEMCHECK		= valgrind
 # SELECTIONS
 ifdef GDB
 FLAG_C			+= -g3
+endif
+
+ifdef GCC
+LINKER			= gcc
 endif
 
 ifdef ARGV

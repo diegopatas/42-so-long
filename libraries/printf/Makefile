@@ -6,11 +6,11 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/30 17:32:02 by ddiniz            #+#    #+#              #
-#    Updated: 2022/06/11 18:03:55 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/10/13 17:53:50 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= gcc
+CC		= cc
 CFLAGS	= -Wall -Werror -Wextra
 
 SRCS	= ft_printf.c ft_strlen.c ft_strchr.c check_char.c ft_itoag.c \
