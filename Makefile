@@ -6,12 +6,12 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 22:45:12 by ddiniz            #+#    #+#              #
-#    Updated: 2022/10/12 18:53:18 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/10/13 10:17:16 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # COMPILATION
-LINKER			= gcc
+LINKER			= cc
 COMPILER		= $(LINKER) -c
 
 # SHELL COMMANDS
