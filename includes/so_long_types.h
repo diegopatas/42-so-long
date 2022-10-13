@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 10:04:26 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/12 20:42:23 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/13 17:42:07 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define ERROR 1
 # define LOG 0
 
-typedef struct	s_game {
+typedef struct s_game {
 	void	*mlx;
 	void	*win;
 	char	**map;
@@ -50,6 +50,7 @@ typedef struct	s_game {
 	int		ctrl_wayout;
 	int		nb_wayout;
 	int		nb_score;
+	int		flag_wayout;
 }	t_game;
 
 #endif
