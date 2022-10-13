@@ -6,12 +6,12 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 22:45:12 by ddiniz            #+#    #+#              #
-#    Updated: 2022/10/13 10:17:16 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/10/13 14:50:08 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # COMPILATION
-LINKER			= cc
+LINKER			= gcc
 COMPILER		= $(LINKER) -c
 
 # SHELL COMMANDS
@@ -27,8 +27,10 @@ FLAG_C			+= -g3
 endif
 
 ifdef ARGV
-ARGUMENTS 			+= $(PATH_MAPS)/map.ber
+ARGUMENTS 		+= $(PATH_MAPS)/map.ber
 endif
+
+ARGL			=
 
 # COMPILATION FLAG
 FLAG_C			+= -Wall -Wextra -Werror
@@ -107,7 +109,7 @@ debug: all
 	$(DEBUG) ./$(NAME) $(ARGUMENTS)
 
 leak: all
-	$(MEMCHECK) $(FLAG_LEAK) ./$(NAME) $(ARGUMENTS)
+	$(MEMCHECK) $(FLAG_LEAK) ./$(NAME) $(ARGL)
 
 test:
 	$(MAKE) -C $(PATH_TESTS) all
