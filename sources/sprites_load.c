@@ -6,11 +6,18 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 22:47:12 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/10 17:00:41 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/13 16:33:40 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <so_long.h>
+
+static	void	sprite_unload_file(void *mlx, void *sprite)
+{
+	if (sprite != NULL)
+		mlx_destroy_image(mlx, sprite);
+	return ;
+}
 
 static	void	*sprites_load_file(t_game *game, char *path)
 {
@@ -28,8 +35,18 @@ int	sprites_load(t_game *game)
 	if (game->player == NULL || game->wall == NULL || game->collect == NULL
 		|| game->empty == NULL || game->wayout == NULL)
 	{
-		sprites_unload(game);
-		game_interface_unload(game, 1, 1);
+		log_message("invalid sprite file or it doesn't exit!", ERROR);
+		sprite_unload_file(game->mlx, game->player);
+		sprite_unload_file(game->mlx, game->wall);
+		sprite_unload_file(game->mlx, game->collect);
+		sprite_unload_file(game->mlx, game->empty);
+		sprite_unload_file(game->mlx, game->wayout);
+		mlx_destroy_window(game->mlx, game->win);
+		mlx_destroy_display(game->mlx);
+		map_unload(game->map);
+		free(game->mlx);
+		free(game);
+		exit(0);
 	}
 	return (EXIT_SUCCESS);
 }

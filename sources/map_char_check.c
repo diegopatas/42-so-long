@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 23:34:35 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/12 09:12:22 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/13 17:17:06 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,15 @@ static	int	map_walls_vert_check(t_game *game)
 
 static	int	map_statistics_check(int *nb_player, int *nb_wayout, int *nb_score)
 {
-	if (*nb_player == 0 || *nb_player > 1)
+	if (*nb_player != 1)
 		return (log_message(
 				"Invalid number of players! Please inform just one.", ERROR));
-	else if (*nb_wayout == 0)
+	else if (*nb_wayout != 1)
 		return (log_message(
 				"Invalid number of exits! Please inform just one.", ERROR));
 	else if (*nb_score == 0)
 		return (log_message(
-				"Invalid number of collectibles! Please inform at least one.",
+				"Invalid number of collectibles!",
 				ERROR));
 	else
 		return (1);

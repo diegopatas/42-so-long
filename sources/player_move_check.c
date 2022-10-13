@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:17:15 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/13 10:11:51 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/13 17:33:09 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ static	int	player_move_try(t_game *game, char *player_pos, int i, int j)
 		return (0);
 	else if (*target_pos != 'E' && game->ctrl_wayout == game->nb_wayout)
 		return (player_move(game, player_pos, target_pos, '0'));
-	else if (*target_pos != 'E' && game->ctrl_wayout < game->nb_wayout)
+	else if (*target_pos != 'E' && game->ctrl_wayout < game->nb_wayout
+		&& game->ctrl_score > 0)
 		return (player_move(game, player_pos, target_pos, 'E'));
 	else if (*target_pos == 'E' && game->ctrl_score == 0)
 	{
