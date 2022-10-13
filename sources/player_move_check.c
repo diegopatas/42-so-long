@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 12:17:15 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/12 15:10:47 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/13 10:11:51 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static	int	player_move(t_game *game, char *start, char *dest, char sprite)
 {
+	game->player_moves++;
 	if (*dest == 'C')
 		game->ctrl_score--;
 	else if (*dest == 'E')
 		game->ctrl_wayout--;
 	else if (game->ctrl_wayout < game->nb_wayout)
 		game->ctrl_wayout++;
-	game->player_moves++;
 	*start = sprite;
 	*dest = 'P';
 	ft_printf("Number of movements:%d\n", game->player_moves);
@@ -41,6 +41,7 @@ static	int	player_move_try(t_game *game, char *player_pos, int i, int j)
 	else if (*target_pos == 'E' && game->ctrl_score == 0)
 	{
 		game->player_moves++;
+		ft_printf("Number of movements:%d\n", game->player_moves);
 		game_unload(game);
 	}
 	else

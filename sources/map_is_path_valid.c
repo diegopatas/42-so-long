@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 19:21:27 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/13 01:22:30 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/13 10:05:01 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	map_is_path_valid(t_game *game, char *map_argv)
 	player_position_get(game);
 	flood_fill(game, game->player_row, game->player_col);
 	if ((game->nb_score - game->ctrl_score) == 0
-		&& (game->nb_wayout - game->ctrl_wayout) == 0)
+		&& (game->nb_wayout - game->ctrl_wayout) >= 0)
 	{
 		game->ctrl_score = game->nb_score;
 		game->ctrl_wayout = game->nb_wayout;
