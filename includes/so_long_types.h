@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 10:04:26 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/12 00:05:56 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/12 20:42:23 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_game {
 	int		ctrl_player;
 	int		ctrl_wayout;
 	int		nb_wayout;
+	int		nb_score;
 }	t_game;
 
 #endif

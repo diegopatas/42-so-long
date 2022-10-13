@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 21:25:00 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/12 10:58:42 by ddiniz           ###   ########.fr       */
+/*   Updated: 2022/10/12 20:53:09 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # include <so_long_types.h>
 
 int	event_key_handle(int keycode, t_game *game);
+int	event_click_handle(t_game *game);
 
 int	file_is_valid(char *file);
 
@@ -48,7 +49,7 @@ int	sprites_load(t_game *game);
 int	sprites_unload(t_game *game);
 
 int	map_is_valid(t_game *game, char *map_argv);
-int	map_is_path_valid(void);
+int	map_is_path_valid(t_game *game, char* map_argv);
 int	map_rect_check(t_game *game);
 int	map_size_check(int width, int height);
 int	map_char_check(t_game *game);
