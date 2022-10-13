@@ -6,7 +6,7 @@
 #    By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/24 22:45:12 by ddiniz            #+#    #+#              #
-#    Updated: 2022/10/13 17:52:03 by ddiniz           ###   ########.fr        #
+#    Updated: 2022/10/13 18:09:42 by ddiniz           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,26 +96,27 @@ clean:
 	$(REMOVE_FORCE) $(PATH_OBJECT)
 	@$(MAKE) -C $(PATH_LIBFT) clean
 	@$(MAKE) -C $(PATH_PRINTF) clean
-	@$(MAKE) -C $(PATH_TESTS) clean
+#	@$(MAKE) -C $(PATH_TESTS) clean
 
 fclean: clean
 	$(REMOVE_FORCE) $(NAME)
 	@$(MAKE) -C $(PATH_LIBFT) fclean
 	@$(MAKE) -C $(PATH_PRINTF) fclean
-	@$(MAKE) -C $(PATH_TESTS) fclean
+#	@$(MAKE) -C $(PATH_TESTS) fclean
 
 re: fclean all
 
-run: all
-	./$(NAME) $(ARGUMENTS)
+#run: all
+#	./$(NAME) $(ARGUMENTS)
+#
+#debug: all
+#	$(DEBUG) ./$(NAME) $(ARGUMENTS)
+#
+#leak: all
+#	$(MEMCHECK) $(FLAG_LEAK) ./$(NAME) $(ARGL)
+#
+#test:
+#	$(MAKE) -C $(PATH_TESTS) all
 
-debug: all
-	$(DEBUG) ./$(NAME) $(ARGUMENTS)
-
-leak: all
-	$(MEMCHECK) $(FLAG_LEAK) ./$(NAME) $(ARGL)
-
-test:
-	$(MAKE) -C $(PATH_TESTS) all
-
-.PHONY: all fclean clean re run leak test debug
+.PHONY: all fclean clean re
+#	run leak test debug
